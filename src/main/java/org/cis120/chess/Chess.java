@@ -1,7 +1,6 @@
 package org.cis120.chess;
 
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.TreeSet;
 
 public class Chess {
@@ -103,13 +102,12 @@ public class Chess {
         // checking if there is a piece to be taken
         Piece lostPiece = getPieceInCell(movePos.x, movePos.y);
 
-        //en passant take
-        if (selected instanceof Pawn && movePos.x != currentPos.x && lostPiece == null){
-            if (this.whiteTurn){
-                lostPiece = getPieceInCell(movePos.x, movePos.y-1);
-            }
-            else{
-                lostPiece = getPieceInCell(movePos.x, movePos.y+1);
+        // en passant take
+        if (selected instanceof Pawn && movePos.x != currentPos.x && lostPiece == null) {
+            if (this.whiteTurn) {
+                lostPiece = getPieceInCell(movePos.x, movePos.y - 1);
+            } else {
+                lostPiece = getPieceInCell(movePos.x, movePos.y + 1);
             }
         }
 
@@ -127,9 +125,9 @@ public class Chess {
                 if (selected instanceof Rook || selected instanceof King) {
                     selected.setHasMoved();
                 }
-                if (selected instanceof Pawn){
+                if (selected instanceof Pawn) {
                     Piece queen = queenPromotion(selected);
-                    if (queen != null){
+                    if (queen != null) {
                         selected.getTaken();
                         updateBoard();
                         this.board[movePos.y][movePos.x] = queen;
@@ -153,7 +151,7 @@ public class Chess {
         }
     }
 
-    private Piece queenPromotion(Piece p){
+    private Piece queenPromotion(Piece p) {
         MyPoint curr = p.getCurrent();
         if (curr != null) {
             if (curr.y == 7 && p.getIsWhite()) {
@@ -349,8 +347,7 @@ public class Chess {
                 this.selectedPiece = null;
                 this.whiteTurn = !this.whiteTurn;
                 return "White King Side Castle Executed";
-            }
-            else{
+            } else {
                 return "Castle Not Allowed";
             }
         } else if (!this.whiteTurn && !this.blackKing.getHasMoved() && !this.bRook2.getHasMoved()) {
@@ -364,8 +361,7 @@ public class Chess {
                 this.selectedPiece = null;
                 this.whiteTurn = !this.whiteTurn;
                 return "Black King Side Castle Executed";
-            }
-            else{
+            } else {
                 return "Castle Not Allowed";
             }
         } else {
@@ -386,8 +382,7 @@ public class Chess {
                 this.selectedPiece = null;
                 this.whiteTurn = !this.whiteTurn;
                 return "White Queen Side Castle Executed";
-            }
-            else{
+            } else {
                 return "Castle Not Allowed";
             }
         } else if (!this.whiteTurn && !this.blackKing.getHasMoved() && !this.bRook1.getHasMoved()) {
@@ -402,8 +397,7 @@ public class Chess {
                 this.selectedPiece = null;
                 this.whiteTurn = !this.whiteTurn;
                 return "White Queen Side Castle Executed";
-            }
-            else{
+            } else {
                 return "Castle Not Allowed";
             }
         } else {

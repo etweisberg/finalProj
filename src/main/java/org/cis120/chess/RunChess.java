@@ -1,7 +1,5 @@
 package org.cis120.chess;
 
-import org.cis120.chess.GameBoard;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -40,5 +38,28 @@ public class RunChess implements Runnable {
         frame.setVisible(true);
 
         board.reset();
+
+        final JFrame instructions = new JFrame("Instructions");
+        instructions.setPreferredSize(new Dimension(400, 400));
+        final JPanel instr_panel = new JPanel();
+        instr_panel.setPreferredSize(new Dimension(400, 400));
+        final JLabel instr = new JLabel(
+                "" +
+                        "<html>" +
+                        "<h1 style=\"text-align: center;\">Chess</h1>" +
+                        "<ul>" +
+                        "<li>Move pieces by clicking on a piece to select it</li>" +
+                        "<li>It will be highlighted red</li>" +
+                        "<li>Click on the position you want to move to</li>" +
+                        "<li>Use undo selection button if you want to pick a new piece</li>" +
+                        "<li>The board will reset and tell you who won if someone wins!</li>" +
+                        "</ul>" +
+                        "</html>"
+        );
+        instr.setPreferredSize(new Dimension(400, 400));
+        instr_panel.add(instr);
+        instructions.add(instr_panel, BorderLayout.CENTER);
+        instructions.pack();
+        instructions.setVisible(true);
     }
 }

@@ -2,16 +2,16 @@ package org.cis120.chess;
 
 import java.awt.*;
 
-public class MyPoint extends Point implements Comparable<MyPoint>{
+public class MyPoint extends Point implements Comparable<MyPoint> {
     public MyPoint(int x, int y) {
-        super(x,y);
+        super(x, y);
     }
 
     @Override
     public int compareTo(MyPoint o) {
-        if (x*x + y*y < o.x*o.x + o.y*o.y) {
+        if (x * x + y * y < o.x * o.x + o.y * o.y) {
             return -1;
-        } else if (x*x + y*y > o.x*o.x + o.y*o.y) {
+        } else if (x * x + y * y > o.x * o.x + o.y * o.y) {
             return 1;
         }
 

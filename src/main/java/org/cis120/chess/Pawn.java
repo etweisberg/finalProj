@@ -3,10 +3,8 @@ package org.cis120.chess;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.awt.image.ImageObserver;
 import java.io.File;
 import java.io.IOException;
-import java.util.TreeSet;
 
 public class Pawn extends Piece {
     public Pawn(boolean white, MyPoint curr) {
@@ -66,15 +64,15 @@ public class Pawn extends Piece {
                 }
             }
 
-            //en passant square
-            if (curr.y == 4){
-                Piece left = board[curr.y][curr.x-1];
-                Piece right = board[curr.y][curr.x+1];
-                if (left instanceof Pawn){
-                    this.addPossibleMove(new MyPoint(curr.x-1,curr.y+1));
+            // en passant square
+            if (curr.y == 4) {
+                Piece left = board[curr.y][curr.x - 1];
+                Piece right = board[curr.y][curr.x + 1];
+                if (left instanceof Pawn) {
+                    this.addPossibleMove(new MyPoint(curr.x - 1, curr.y + 1));
                 }
-                if (right instanceof Pawn){
-                    this.addPossibleMove(new MyPoint(curr.x+1,curr.y+1));
+                if (right instanceof Pawn) {
+                    this.addPossibleMove(new MyPoint(curr.x + 1, curr.y + 1));
                 }
             }
         } else {
@@ -106,15 +104,15 @@ public class Pawn extends Piece {
                 }
             }
 
-            //en passant square
-            if (curr.y == 3){
-                Piece left = board[curr.y][curr.x-1];
-                Piece right = board[curr.y][curr.x+1];
-                if (left instanceof Pawn){
-                    this.addPossibleMove(new MyPoint(curr.x-1,curr.y-1));
+            // en passant square
+            if (curr.y == 3) {
+                Piece left = board[curr.y][curr.x - 1];
+                Piece right = board[curr.y][curr.x + 1];
+                if (left instanceof Pawn) {
+                    this.addPossibleMove(new MyPoint(curr.x - 1, curr.y - 1));
                 }
-                if (right instanceof Pawn){
-                    this.addPossibleMove(new MyPoint(curr.x+1,curr.y-1));
+                if (right instanceof Pawn) {
+                    this.addPossibleMove(new MyPoint(curr.x + 1, curr.y - 1));
                 }
             }
         }

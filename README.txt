@@ -40,8 +40,9 @@ PennKey: _______
   4. Collections
   - TreeSet of possible moves is used for pieces
   - Iterate through possible moves with a for-each loop
-  - Only one TreeSet to store these moves so it is not redundant
-  - Have to use a Collection because you don't know how many possible moves there are going to be 
+  - Only one TreeSet to store these moves, so it is not redundant
+  - Have to use a Collection because you don't know how many possible moves there are going to be before you find them
+  - TreeSet is a private field for the Piece class, so it is encapsulated
 
 =========================
 =: Your Implementation :=
@@ -50,15 +51,29 @@ PennKey: _______
 - Provide an overview of each of the classes in your code, and what their
   function is in the overall game.
 
+Piece is an abstract class representing the pieces on the board.
+King, Knight, Queen, Rook, Bishop, and Pawn all extend the Piece class with custom methods reflecting their particular
+movement patterns.
+GameBoard instantiates the chess model and controls the model from mouse movements, while also repainting the board
+after moves.
+RunChess sets up the top-level frame and widgets for the GUI.
+Chess is the model of the game containing all the information about the board and its pieces, as well as methods for
+setting up the board and updating it based on the moves that are played.
 
 - Were there any significant stumbling blocks while you were implementing your
   game (related to your design, or otherwise)?
 
+The biggest issue I had was checking whether certain variables were pointing to the same instance of an object or
+aliases. This made it hard to know exactly what the state of the board was until I implemented the updateBoard function.
+Now, I am able to keep the 2D array with the exact same pieces as represented by the private fields of the chess model,
+most notably the kings, which I need to be able to call upon with their current position for check and checkmate.
 
 - Evaluate your design. Is there a good separation of functionality? How well is
   private state encapsulated? What would you refactor, if given the chance?
 
-
+I think my design has a good separation of functionality and is well encapsulated. If given the chance, I would try to
+make it even less redundant by eliminating the way each Piece knows its current position and the board stores these,
+or at least link them together.
 
 ========================
 =: External Resources :=
