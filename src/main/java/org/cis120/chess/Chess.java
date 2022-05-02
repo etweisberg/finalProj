@@ -97,7 +97,6 @@ public class Chess {
         MyPoint movePos = new MyPoint(x, y);
         selected.findMoves(this.board);
         TreeSet<MyPoint> possibleMoves = selected.getPossibleMoves();
-        System.out.println(possibleMoves);
 
         // checking if there is a piece to be taken
         Piece lostPiece = getPieceInCell(movePos.x, movePos.y);
