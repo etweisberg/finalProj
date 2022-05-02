@@ -106,8 +106,14 @@ public class Pawn extends Piece {
 
             // en passant square
             if (curr.y == 3) {
-                Piece left = board[curr.y][curr.x - 1];
-                Piece right = board[curr.y][curr.x + 1];
+                Piece left = null;
+                Piece right = null;
+                if (curr.x > 0) {
+                    left = board[curr.y][curr.x - 1];
+                }
+                if (curr.x < 7) {
+                    right = board[curr.y][curr.x + 1];
+                }
                 if (left instanceof Pawn) {
                     this.addPossibleMove(new MyPoint(curr.x - 1, curr.y - 1));
                 }
