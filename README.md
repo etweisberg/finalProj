@@ -1,6 +1,4 @@
-===================
-=: Core Concepts :=
-===================
+# Core Concepts
 
 - List the four core concepts, the features they implement, and why each feature
   is an appropriate use of the concept. Incorporate the feedback you got after
@@ -39,9 +37,7 @@
   - Have to use a Collection because you don't know how many possible moves there are going to be before you find them
   - TreeSet is a private field for the Piece class, so it is encapsulated
 
-=========================
-=: Your Implementation :=
-=========================
+# Your Implementation 
 
 - Provide an overview of each of the classes in your code, and what their
   function is in the overall game.
@@ -70,9 +66,7 @@ I think my design has a good separation of functionality and is well encapsulate
 make it even less redundant by eliminating the way each Piece knows its current position and the board stores these,
 or at least link them together.
 
-========================
-=: External Resources :=
-========================
+# External Resources
 
 - Cite any external resources (images, tutorials, etc.) that you may have used 
   while implementing your game.
